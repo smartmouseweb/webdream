@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add stock{% endblock %}
+{% block header %}<a href="/">Home</a> » Create stock{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <small>* If the selected warehouse is full, the remaining quantity will be placed in the next warehouse.</small><br><br>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a type="button" class="btn btn-outline-secondary" href="/">Cancel</a>
+    {{ form_end(form)}}
+{% endblock %}

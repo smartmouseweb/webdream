@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Remove stock{% endblock %}
+{% block header %}<a href="/">Home</a> » Remove stock{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <small>* If the selected warehouse has less than the typed quantity, the remaining quantity will be removed from the next warehouse.</small><br><br>
+        <button type="submit" class="btn btn-primary">Remove</button>
+        <a type="button" class="btn btn-outline-secondary" href="/">Cancel</a>
+    {{ form_end(form)}}
+{% endblock %}

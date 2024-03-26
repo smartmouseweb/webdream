@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add warehouse{% endblock %}
+{% block header %}<a href="/">Home</a> » Create warehouse{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a type="button" class="btn btn-outline-secondary" href="/">Cancel</a>
+    {{ form_end(form)}}
+{% endblock %}

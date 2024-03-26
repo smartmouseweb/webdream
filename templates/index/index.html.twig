@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}WebDream Warehouses!{% endblock %}
+
+{% block body %}
+
+    <a class="btn btn-primary" href="/warehouse/create">Add warehouse</a>
+    <a class="btn btn-primary" href="/stock/create">Add stock</a>
+    <a class="btn btn-primary" href="/stock/remove">Remove stock</a>
+    <br><br>
+
+    <h2>Warehouses</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col-md-2">#</th>
+                <th scope="col-md-4">Name</th>
+                <th scope="col-md-4">Address</th>
+                <th scope="col-md-2">Remaining</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for warehouse in warehouses %}
+            <tr onclick="$(this).next().toggleClass('d-none');">
+                <td>{{ warehouse.id }}</td>
+                <td>{{ warehouse.name }}</td>
+                <td>{{ warehouse.address }}</td>
+                <td>{{ warehouse.remainingCapacity }} / {{ warehouse.capacity }}</td>
+            </tr>
+            <tr class="d-none">
+                <td colspan="10" class="px-3">
+                    {% if warehouse.stocks|length > 0 %}
+                        <table class="table ">
+                            <thead>
+                                <tr class="table-primary">
+                                    <th scope="col-md-1">#</th>
+                                    <th scope="col-md-2">Product</th>
+                                    <th scope="col-md-2">Type</th>
+                                    <th scope="col-md-2">Brand</th>
+                                    <th scope="col-md-1">Price</th>
+                                    <th scope="col-md-1">Stock</th>
+                                    <th scope="col-md-3">Date created</th>
+                                </tr>
+                            </thead>
+                            
+                            {% for stock in warehouse.stocks %}
+                                <tr class="table-light">
+                                    <td>{{ stock.id }}</td>
+                                    <td>{{ stock.product.name }}</td>
+                                    <td>{{ stock.product.parameter }}</td>
+                                    <td>{{ stock.product.brand.name }}</td>
+                                    <td>{{ stock.product.price }}</td>
+                                    <td>{{ stock.quantity }}</td>
+                                    <td>{{ stock.dateRegister|date('H:i:s d-m-Y') }}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    {% else %}
+                        No entries...
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
