@@ -6,3 +6,5 @@
 6. Enjoy on localhost: http://127.0.0.1:8000/
 
 Sorry for not Dockerizing it!
+
+ToDos: PHPUnit tests. Currently only HTML endpoints are available.
