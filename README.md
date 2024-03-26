@@ -3,7 +3,7 @@
 3. Create database: symfony console doctrine:database:create
 4. Install migrations: symfony console doctrine:migrations:migrate
 5. Install data fixtures: symfony console doctrine:fixtures:load
-6. Enjoy on localhost: http://127.0.0.1:8000/
+6. Enjoy on localhost.
 
 Sorry for not Dockerizing it!
 
